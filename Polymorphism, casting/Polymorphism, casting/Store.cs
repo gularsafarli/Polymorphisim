@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Polymorphism__casting
@@ -63,19 +64,16 @@ namespace Polymorphism__casting
             return false;
         }
 
-        public Product[] RemoveProduct(int no)
+        public void RemoveProduct(int no)
         {
-            Drink[] drinks = new Drink[0];
-            foreach (var item in _products)
+            for (int i = no; i < _products.Length; i++)
             {
-                if (item is Drink)
-                {
-                    Drink drink = (Drink)item;
-                    Array.Resize(ref drinks, drinks.Length + 1);
-                    drinks[drinks.Length - 1] = drink;
-                }
+                var swap = _products[i];
+                _products[i] = _products[i + 1];
+                _products[i + 1]= swap;
             }
-            return drinks;
+            Array.Resize(ref _products, _products.Length-1);
+
         }
 
         public void Add(Product product)

@@ -10,6 +10,6 @@ namespace Polymorphism__casting
         public void Add(Product product);
         public bool HasProductByNo(int no);
         public Product GetproductByNo(int no);
-        public Product[] RemoveProduct(int no);
+        public void RemoveProduct(int no);
     }
 }
